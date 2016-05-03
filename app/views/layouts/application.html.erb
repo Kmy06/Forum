@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:page_title).empty? ? "Forum" : yield(:page_title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+</head>
+<body>
+
+<div class="container">
+<%= render(:partial => "layouts/partial/header") %>
+<%= render(:partial => "layouts/partial/menu") %>
+
+	<%= yield %>
+<%= render(:partial => "layouts/partial/footer") %>
+
+</div>
+</body>
+</html>
