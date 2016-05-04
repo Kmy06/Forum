@@ -9,13 +9,20 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 </head>
 <body>
-
+<style type="text/css">
+	body{
+  margin-top: 70px;
+}
+</style>
 <div class="container">
 <%= render(:partial => "layouts/partial/header") %>
 <%= render(:partial => "layouts/partial/menu") %>
-
+	<% flash.each do |message_type, message| %>
+	    <div class="alert alert-<%= message_type %>"><%= message %></div>
+	<% end %>
 	<%= yield %>
 <%= render(:partial => "layouts/partial/footer") %>
+<%= debug(params) if Rails.env.development? %>
 
 </div>
 </body>
