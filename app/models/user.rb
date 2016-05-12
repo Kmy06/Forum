@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password # créer les variables password et password_confirmation et hash et le mot de passe dans password_digest
-  validates :password, presence: true, length: { minimum: 6 } # il faut un mot de passe avec au moins 6 caractères
+  validates :password, presence: true, length: { minimum: 6 } 
 
   # Returns the hash digest of the given string.
   def User.digest(string)
