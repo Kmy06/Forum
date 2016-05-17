@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   root 'pages#home'
   get 'help'    => 'pages#help'
   get 'about'   => 'pages#about'
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
   resources :users
   # L'e-mail d'activation implique une forme URL edit_account_activation_url(activation_token, ...) nous aurons besoin d'une route nommée pour l'action edit. Nous pouvons organiser cela avec la ligne des ressources
   resources :account_activations, only: [:edit]
-  
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
