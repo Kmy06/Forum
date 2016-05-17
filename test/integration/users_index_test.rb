@@ -36,8 +36,11 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   end
 
   test "index as non-admin" do
+    # test/test_helper.rb 
     log_in_as(@non_admin)
     get users_path
+    # assert select vérifie qu'il y est bien une ou des balises html <a href="">delete</a>
+    # en rajoutant count: 0 du coup on en attendant aucune
     assert_select 'a', text: 'delete', count: 0
   end
 end

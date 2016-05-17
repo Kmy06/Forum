@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  get 'logout'  => 'sessions#destroy'
+
   resources :users
+  # L'e-mail d'activation implique une forme URL edit_account_activation_url(activation_token, ...) nous aurons besoin d'une route nommée pour l'action edit. Nous pouvons organiser cela avec la ligne des ressources
+  resources :account_activations, only: [:edit]
   
 
   # The priority is based upon order of creation: first created -> highest priority.
